@@ -34,9 +34,11 @@ const profileInfo = {
     street: "06 Melrose Road",
     postalcode: "7945",
   },
-  fulladdress: function () {
+  fulladdress: function (detailled = false) {
     const { address } = this;
-    return `${address.city}, ${address.country}`;
+    return detailled
+      ? `${address.street}, ${address.district}, ${address.postalcode} ${address.city}, ${address.country}`
+      : `${address.city}, ${address.country}`;
   },
   website: "olivieradjagba.github.io",
   getAbout: function () {

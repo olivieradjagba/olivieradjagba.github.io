@@ -260,6 +260,7 @@
     innerText(select(".my-whatsapp", true), profileInfo.phone.whatsapp);
     // Address
     innerText(select(".my-address", true), profileInfo.fulladdress());
+    innerText(select(".my-location", true), profileInfo.fulladdress(true));
 
     /**
      * Resume
