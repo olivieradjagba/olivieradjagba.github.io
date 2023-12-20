@@ -17,7 +17,7 @@ const profileInfo = {
     const { degree, title } = this;
     return `${degree} ${title.long}`;
   },
-  imgSrc: "assets/img/profile-img.HEIC",
+  imgSrc: "assets/img/profile-img.png",
   social: [
     { name: "LinkedIn", icon: "bx bxl-linkedin", class: "linkedin", url: "https://www.linkedin.com/in/olivieradjagba" },
     { name: "Github", icon: "bx bxl-github", class: "github", url: "https://github.com/olivieradjagba" },
@@ -149,6 +149,19 @@ const resumeInfo = {
       city: "Dassa",
       country: "Benin",
     },
+  ],
+  skills: [
+    { id: "python", name: "Python", level: 90 },
+    { id: "r", name: "R", level: 80 },
+    { id: "matlab", name: "MATLAB", level: 75 },
+    { id: "c/c++", name: "C/C++", level: 70 },
+    { id: "cuda", name: "CUDA", level: 60 },
+    { id: "html/css", name: "HTML/CSS", level: 95 },
+    { id: "js", name: "JavaScript", level: 90 },
+    { id: "sql", name: "SQL", level: 80 },
+    { id: "git", name: "Git", level: 80 },
+    { id: "vue", name: "VueJS", level: 85 },
+    { id: "react", name: "ReactJS", level: 75 },
   ],
 };
 

@@ -221,8 +221,9 @@
     // Degree
     innerText(select(".my-degree", true), profileInfo.fulldegree());
     // Profile image
-    const img = select(".profile img");
-    if (img) img.src = profileInfo.imgSrc;
+    const imgEls = select("img.my-profile", true);
+    // if (img) img.src = profileInfo.imgSrc;
+    if (imgEls) imgEls.forEach((el) => (el.src = profileInfo.imgSrc));
     // Social links
     const socials = select(".profile .social-links");
     if (socials) {
@@ -261,10 +262,12 @@
     // Address
     innerText(select(".my-address", true), profileInfo.fulladdress());
     innerText(select(".my-location", true), profileInfo.fulladdress(true));
+  })();
 
-    /**
-     * Resume
-     */
+  /**
+   * Resume
+   */
+  (function setResume() {
     // Education
     const educationEl = select("#resume .education");
     if (educationEl) {
@@ -297,6 +300,35 @@
           <ul>${(item.achievements.map((ach) => "<li>" + ach + "</li>") || []).join("")}</ul>
           </ul>
         </div>`;
+      });
+    }
+    // Skills
+    /*<div class="progress">
+      <span class="skill">HTML <i class="val">100%</i></span>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>data-skills
+    </div>*/
+    const skillsEls = select(".skills-content .my-skills", true);
+    if (skillsEls) {
+      const { skills } = resumeInfo;
+      skillsEls.forEach((el) => {
+        let dataSkills = el.getAttribute("data-skills").split(",");
+        let html = "";
+        dataSkills.forEach((skill) => {
+          skill = skill.trim();
+          let findSkill = skills.find((item) => item.id == skill);
+          if (findSkill) {
+            html += `
+            <div class="progress">
+              <span class="skill">${findSkill.name}<i class="val">${findSkill.level}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="${findSkill.level}" aria-valuemin="0" aria-valuemax="${findSkill.level}"></div>
+              </div>
+            </div>`;
+          }
+        });
+        el.innerHTML = html;
       });
     }
   })();
