@@ -202,9 +202,13 @@
   /**
    * Useful functions
    */
-  const innerText = (el, text) => {
-    if (el) {
-      el.innerText = text;
+  const innerText = (els, text) => {
+    if (els) {
+      if (Array.isArray(els)) {
+        els.forEach((el) => {
+          el.innerText = text;
+        });
+      } else els.innerText = text;
     }
   };
 
@@ -213,21 +217,9 @@
    */
   (function setProfile() {
     // Hero
-    const profile = select(".my-name", true);
-    if (profile) {
-      const name = profileInfo.fullname();
-      profile.forEach((el) => {
-        innerText(el, name);
-      });
-    }
+    innerText(select(".my-name", true), profileInfo.fullname());
     // Degree
-    const degreeEls = select(".my-degree", true);
-    if (degreeEls) {
-      const name = profileInfo.fulldegree();
-      degreeEls.forEach((el) => {
-        innerText(el, name);
-      });
-    }
+    innerText(select(".my-degree", true), profileInfo.fulldegree());
     // Profile image
     const img = select(".profile img");
     if (img) img.src = profileInfo.imgSrc;
@@ -250,20 +242,60 @@
           info = info.trim();
           let findInfo = aboutInfo.find((item) => item.id === info);
           if (findInfo) {
-            // html += `<li><i class="bi bi-chevron-right ${findInfo.class}"></i> <strong>${findInfo.name}:</strong> <span class="${findInfo.class}">${findInfo.text}</span></li>`;
-            html += `<li>test</li>`;
+            html += `<li><i class="bi bi-chevron-right"></i> <strong>${findInfo.name}:</strong> \
+                    <span class="${findInfo.class}">${findInfo.text || ""}</span></li>`;
           }
         });
         html = `<ul>${html}</ul>`;
-        innerText(el, "<ul><li>test</li></ul>");
+        el.innerHTML = html;
       });
     }
     // Website
-    const websiteEls = select("my-website", true);
-    if (websiteEls) {
-      const { website } = profileInfo;
-      websiteEls.forEach((el) => {
-        innerText(el, website);
+    innerText(select(".my-website", true), profileInfo.website);
+    // Email
+    innerText(select(".my-email", true), profileInfo.email);
+    // Phone
+    innerText(select(".my-phone", true), profileInfo.phone.mobile);
+    // Phone
+    innerText(select(".my-whatsapp", true), profileInfo.phone.whatsapp);
+    // Address
+    innerText(select(".my-address", true), profileInfo.fulladdress());
+
+    /**
+     * Resume
+     */
+    // Education
+    const educationEl = select("#resume .education");
+    if (educationEl) {
+      const { education } = resumeInfo;
+      educationEl.innerHTML = "";
+      education.forEach((item) => {
+        educationEl.innerHTML += `
+        <div class="resume-item">
+          <h4>${item.degree}</h4>
+          <h5>${item.year.from} - ${((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present"}</h5>
+          <p><em>${item.university.name}, ${item.university.city}, ${item.university.country}</em></p>
+          <p>${item.description}</p>
+        </div>`;
+      });
+    }
+    // Experience
+    const experienceEl = select("#resume .experience");
+    if (experienceEl) {
+      const { experience } = resumeInfo;
+      experienceEl.innerHTML = "";
+      experience.forEach((item) => {
+        experienceEl.innerHTML += `
+        <div class="resume-item">
+          <h4>${item.position}</h4>
+          <h5>${item.year.from} ${
+          !item.ongoing && item.year.from == item.year.to ? "" : "- " + (((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present")
+        }</h5>
+          <p><em>${item.company}</em></p>
+          <p>${item.description}</p>
+          <ul>${(item.achievements.map((ach) => "<li>" + ach + "</li>") || []).join("")}</ul>
+          </ul>
+        </div>`;
       });
     }
   })();

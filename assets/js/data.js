@@ -1,5 +1,8 @@
 "use strict";
-let profileInfo = {
+
+const currentYear = new Date().getFullYear();
+
+const profileInfo = {
   surname: "Adjagba",
   firstname: "Olivier",
   fullname: function () {
@@ -31,7 +34,11 @@ let profileInfo = {
     street: "06 Melrose Road",
     postalcode: "7945",
   },
-  website: "https://olivieradjagba.github.io",
+  fulladdress: function () {
+    const { address } = this;
+    return `${address.city}, ${address.country}`;
+  },
+  website: "olivieradjagba.github.io",
   getAbout: function () {
     const { website } = this;
     return [
@@ -43,6 +50,104 @@ let profileInfo = {
       { id: "whatsapp", name: "Whatsapp", class: "my-whatsapp" },
     ];
   },
+};
+
+const universities = [
+  {
+    id: "aims",
+    name: "African Institute of Mathematical Sciences",
+    shortname: "AIMS",
+    city: "Cape Town",
+    country: "South Africa",
+  },
+  {
+    id: "unstim",
+    name: "University of Science, Technology, Engineering and Mathematics",
+    shortname: "UNSTIM",
+    city: "Abomey",
+    country: "Benin",
+  },
+];
+
+const resumeInfo = {
+  education: [
+    {
+      id: "aims",
+      university: universities.find((u) => u.id === "aims"),
+      degree: "Master of AI for Science",
+      grade: "",
+      year: { from: 2023, to: 2024 },
+      ongoing: true,
+      description:
+        "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend",
+    },
+    {
+      id: "gmm",
+      university: universities.find((u) => u.id === "unstim"),
+      degree: "Engineering Degree",
+      grade: "15.42/20",
+      year: { from: 2018, to: 2021 },
+      description:
+        "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend",
+    },
+    {
+      id: "prepa",
+      university: universities.find((u) => u.id === "unstim"),
+      degree: "Preparatory Classes",
+      grade: "74.85/100",
+      year: { from: 2016, to: 2018 },
+      description:
+        "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend",
+    },
+  ],
+  experience: [
+    {
+      id: "cosit",
+      company: "COSIT Benin",
+      position: "Web Front-end developer",
+      year: { from: 2022, to: 2023 },
+      description: "Design and maintenance of a web platform.",
+      achievements: [
+        "Development of a SIG platform for UNTIM university",
+        "Development of woods traceability platform for ONAB",
+        "Development of cars repair management platform",
+        "Web platform monitoring and management",
+        "Interns follow-up",
+      ],
+      city: "Cotonou",
+      country: "Benin",
+    },
+    {
+      id: "gti",
+      company: "Green Tech Innovation",
+      position: "Intern",
+      year: { from: 2021, to: 2022 },
+      description: "Bio-statistics analysis and web development.",
+      achievements: [
+        "Data analysis on the molecular genetic characterisation of plantain accessions in Benin for a PhD student",
+        "Data analysis on master’s thesis topics",
+        "Contribution to the company’s website design",
+        "Design of a mini plant sales website with ReactJS and PHP REST API",
+        "Analysis of data collected for the « Global Trial on Agroecological Approches to Fall Armyworm Management » project",
+      ],
+      city: "Abomey-Calavi",
+      country: "Benin",
+    },
+    {
+      id: "dp",
+      company: "dP Divecosys in partnership with UNSTIM",
+      position: "Intern",
+      year: { from: 2021, to: 2021 },
+      description: "Data collection on fall armyworm.",
+      achievements: [
+        "Implementation of an experimental device on the agroecological management of the fall armyworm for the « Global Trial on Agroecological Approches to Fall Armyworm Management » project",
+        "Data collection on the fall armyworm (Spodoptera frugiperda) at 3, 6 and 9 months after planting as well as at harvest",
+        "Sending data on the dedicated platform using KoboColect",
+      ],
+      city: "Dassa",
+      country: "Benin",
+    },
+  ],
 };
 
 // // Read the Excel file
