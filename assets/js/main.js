@@ -213,9 +213,15 @@
   };
 
   /**
+   * Title
+   */
+  const title = `Olivier - Portfolio`;
+  innerText(select("title", true), title);
+
+  /**
    * Profile
    */
-  (function setProfile() {
+  (function () {
     // Hero
     innerText(select(".my-name", true), profileInfo.fullname());
     // Degree
@@ -267,7 +273,7 @@
   /**
    * Resume
    */
-  (function setResume() {
+  (function () {
     // Education
     const educationEl = select("#resume .education");
     if (educationEl) {
@@ -303,12 +309,6 @@
       });
     }
     // Skills
-    /*<div class="progress">
-      <span class="skill">HTML <i class="val">100%</i></span>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>data-skills
-    </div>*/
     const skillsEls = select(".skills-content .my-skills", true);
     if (skillsEls) {
       const { skills } = resumeInfo;
@@ -329,6 +329,37 @@
           }
         });
         el.innerHTML = html;
+      });
+    }
+    // Projects
+    /*<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+      <div class="portfolio-wrap">
+        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="" />
+        <div class="portfolio-links">
+          <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1">
+            <i class="bx bx-plus"></i>
+          </a>
+          <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+        </div>
+      </div>
+    </div>*/
+    const projectsEl = select("#portfolio .portfolio-container");
+    if (projectsEl) {
+      const { projects } = resumeInfo;
+      projectsEl.innerHTML = "";
+      projects.forEach((item) => {
+        projectsEl.innerHTML += `
+        <div class="col-lg-4 col-md-6 portfolio-item filter-${item.filter}">
+          <div class="portfolio-wrap">
+            <img src="${item.cover}" class="img-fluid" alt="" />
+            <div class="portfolio-links">
+              <a href="${item.cover}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="${item.name}">
+                <i class="bx bx-plus"></i>
+              </a>
+              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>`;
       });
     }
   })();
