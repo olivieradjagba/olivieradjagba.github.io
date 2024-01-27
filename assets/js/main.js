@@ -100,6 +100,9 @@
    * Profile
    */
   (function () {
+    // Head
+    headLinkEl = select("head > link.head-icon");
+    if (headLinkEl) headLinkEl.setAttribute("href", profileInfo.imgSrc); // = profileInfo.imgSrc;
     // Hero
     innerText(select(".my-name", true), profileInfo.fullname());
     // Degree

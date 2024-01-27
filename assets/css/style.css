@@ -1407,6 +1407,13 @@ textarea.form-input::-webkit-resizer {
 
   .avatar-box img {
     width: 120px;
+    /* margin: 15px auto; */
+    display: block;
+    /* border: 8px solid #2c2f3f; */
+    border-radius: 30px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: 50% 5%;
   }
 
   .info-content :is(.name, .my-name) {
