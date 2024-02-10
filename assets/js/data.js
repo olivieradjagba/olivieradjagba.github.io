@@ -61,7 +61,7 @@ const profileInfo = {
 const universities = [
   {
     id: "aims",
-    name: "African Institute of Mathematical Sciences",
+    name: "African Institute for Mathematical Sciences",
     shortname: "AIMS",
     city: "Cape Town",
     country: "South Africa",
@@ -80,7 +80,7 @@ const resumeInfo = {
     {
       id: "aims",
       university: universities.find((u) => u.id === "aims"),
-      degree: "Master of AI for Science",
+      degree: "Master in AI for Science",
       grade: "",
       year: { from: 2023, to: 2024 },
       ongoing: true,

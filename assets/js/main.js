@@ -5,7 +5,8 @@
  * Author: BootstrapMade.com
  * License: https://bootstrapmade.com/license/
  */
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
+  // (function () {
   ("use strict");
 
   /**
@@ -57,34 +58,30 @@
    * Useful functions
    */
   const innerText = (els, text, props = null) => {
-    if (els) {
-      if (Array.isArray(els)) {
-        els.forEach((el) => {
-          el.innerText = text;
-          if (props)
-            props.forEach((prop) => {
-              el[prop.name] = prop.value;
-            });
-        });
-      } else {
-        els.innerText = text;
+    if (Array.isArray(els)) {
+      els.forEach((el) => {
+        el.innerText = text;
         if (props)
           props.forEach((prop) => {
-            els[prop.name] = prop.value;
+            el[prop.name] = prop.value;
           });
-      }
+      });
+    } else {
+      els.innerText = text;
+      if (props)
+        props.forEach((prop) => {
+          els[prop.name] = prop.value;
+        });
     }
   };
 
   const innerHTML = (els, html) => {
-    if (els) {
-      if (Array.isArray(els)) {
-        els.forEach((el) => {
-          el.innerHTML = html;
-        });
-      } else {
-        els.innerHTML = html;
-      }
+    if (Array.isArray(els)) {
+      els.forEach((el) => {
+        el.innerHTML = html;
+      });
+    } else {
+      els.innerHTML = html;
     }
   };
 
@@ -117,47 +114,45 @@
 
     // Social links
     const socials = select(".sidebar-info_more .social-list");
-    if (socials) {
-      let dataSocialInfo = socials.getAttribute("data-social-info").split(",");
-      let html = "";
-      dataSocialInfo.forEach((info) => {
-        info = info.trim();
-        let findSocial = profileInfo.social.find((item) => strCompare(item.id, info));
-        if (findSocial) {
-          html += `
-            <li class="social-item">
-              <a href="${findSocial.url}" class="social-link">
-                <ion-icon name="${findSocial.icon}"></ion-icon>
+    let dataSocialInfo = socials.getAttribute("data-social-info").split(",");
+    let socialContent = "";
+    dataSocialInfo.forEach((info) => {
+      info = info.trim();
+      let findSocial = profileInfo.social.find((item) => strCompare(item.id, info));
+      if (findSocial) {
+        socialContent += `
+          <li class="social-item">
+          <a href="${findSocial.url}" class="social-link">
+          <ion-icon name="${findSocial.icon}"></ion-icon>
               </a>
             </li>`;
-        }
-      });
-      innerHTML(socials, html);
-    }
+      }
+    });
+    innerHTML(socials, socialContent);
+
     // About
     const aboutEl = select(".sidebar-info_more .contacts-list");
-    if (aboutEl) {
-      const aboutInfo = profileInfo.getAbout();
-      let dataContactInfo = aboutEl.getAttribute("data-contact-info").split(",");
-      let html = "";
-      dataContactInfo.forEach((info) => {
-        info = info.trim();
-        let findInfo = aboutInfo.find((item) => strCompare(item.id, info));
-        if (findInfo) {
-          html += `
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="${findInfo.icon}"></ion-icon>
-              </div>
-              <div class="contact-info">
+    const aboutInfo = profileInfo.getAbout();
+    let dataContactInfo = aboutEl.getAttribute("data-contact-info").split(",");
+    let aboutContent = "";
+    dataContactInfo.forEach((info) => {
+      info = info.trim();
+      let findInfo = aboutInfo.find((item) => strCompare(item.id, info));
+      if (findInfo) {
+        aboutContent += `
+          <li class="contact-item">
+          <div class="icon-box">
+          <ion-icon name="${findInfo.icon}"></ion-icon>
+          </div>
+          <div class="contact-info">
                 <p class="contact-title">${findInfo.name}</p>
                 <span class="${findInfo.class}">${findInfo.text || ""}</span>
               </div>
             </li>`;
-        }
-      });
-      innerHTML(aboutEl, html);
-    }
+      }
+    });
+    innerHTML(aboutEl, aboutContent);
+
     // Website
     websiteEls = select(".my-website", true);
     innerHTML(websiteEls, `<a href="https://${profileInfo.website}" class="contact-link" target="_blank">${profileInfo.website}</a>`);
@@ -182,94 +177,79 @@
    */
   (function () {
     // Education
-    const educationEl = select("#resume .education");
-    if (educationEl) {
-      const { education } = resumeInfo;
-      educationEl.innerHTML = "";
-      education.forEach((item) => {
-        educationEl.innerHTML += `
-        <div class="resume-item">
-          <h4>${item.degree}</h4>
-          <h5>${item.year.from} - ${((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present"}</h5>
-          <p><em>${item.university.name}, ${item.university.city}, ${item.university.country}</em></p>
-          <p>${item.description}</p>
-        </div>`;
-      });
-    }
+    const educationEl = select(".timeline-list.education");
+    const { education } = resumeInfo;
+    educationEl.innerHTML = "";
+    education.forEach((item) => {
+      educationEl.innerHTML += `
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title">${item.degree}</h4>
+          <h5 class="h4 univ-comp">${item.university.name}, ${item.university.city}, ${item.university.country}</h5>
+          <span>${item.year.from} - ${((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present"}</span>
+          <p class="timeline-text">${item.description}</p>
+        </li>`;
+    });
+
     // Experience
-    const experienceEl = select("#resume .experience");
-    if (experienceEl) {
-      const { experience } = resumeInfo;
-      experienceEl.innerHTML = "";
-      experience.forEach((item) => {
-        experienceEl.innerHTML += `
-        <div class="resume-item">
-          <h4>${item.position}</h4>
-          <h5>${item.year.from} ${
-          !item.ongoing && item.year.from == item.year.to ? "" : "- " + (((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present")
-        }</h5>
-          <p><em>${item.company}</em></p>
-          <p>${item.description}</p>
-          <ul>${(item.achievements.map((ach) => "<li>" + ach + "</li>") || []).join("")}</ul>
-          </ul>
-        </div>`;
-      });
-    }
+    const experienceEl = select(".timeline-list.experience");
+    const { experience } = resumeInfo;
+    experienceEl.innerHTML = "";
+    experience.forEach((item) => {
+      experienceEl.innerHTML += `
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title">${item.position}</h4>
+          <h5 class="h4 univ-comp">${item.company}</h5>
+          <span>${item.year.from} ${
+        !item.ongoing && item.year.from == item.year.to ? "" : "- " + (((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present")
+      }</span>
+          <p class="timeline-text">${item.description}</p>
+        </li>`;
+    });
+
     // Skills
-    const skillsEls = select(".skills-content .my-skills", true);
-    if (skillsEls) {
-      const { skills } = resumeInfo;
-      skillsEls.forEach((el) => {
-        let dataSkills = el.getAttribute("data-skills").split(",");
-        let html = "";
-        dataSkills.forEach((skill) => {
-          skill = skill.trim();
-          let findSkill = skills.find((item) => item.id == skill);
-          if (findSkill) {
-            html += `
-            <div class="progress">
-              <span class="skill">${findSkill.name}<i class="val">${findSkill.level}%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="${findSkill.level}" aria-valuemin="0" aria-valuemax="${findSkill.level}"></div>
+    const skillsEl = select(".skills-list");
+    const { skills } = resumeInfo;
+    let dataSkills = skillsEl.getAttribute("data-skills").split(",");
+    let skillContent = "";
+    dataSkills.forEach((skill) => {
+      skill = skill.trim();
+      let findSkill = skills.find((item) => item.id == skill);
+      if (findSkill) {
+        skillContent += `
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">${findSkill.name}</h5>
+                <data value="${findSkill.level}">${findSkill.level}%</data>
               </div>
-            </div>`;
-          }
-        });
-        el.innerHTML = html;
-      });
-    }
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: ${findSkill.level}%"></div>
+              </div>
+            </li>`;
+      }
+    });
+    skillsEl.innerHTML = skillContent;
+
     // Projects
-    /*<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-      <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="" />
-        <div class="portfolio-links">
-          <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1">
-            <i class="bx bx-plus"></i>
-          </a>
-          <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-    </div>*/
     const projectsEl = select("#portfolio .portfolio-container");
-    if (projectsEl) {
-      const { projects } = resumeInfo;
-      projectsEl.innerHTML = "";
-      projects.forEach((item) => {
-        projectsEl.innerHTML += `
+    const { projects } = resumeInfo;
+    projectsEl.innerHTML = "";
+    projects.forEach((item) => {
+      projectsEl.innerHTML += `
         <div class="col-lg-4 col-md-6 portfolio-item filter-${item.filter}">
           <div class="portfolio-wrap">
-            <img src="${item.cover}" class="img-fluid" alt="" />
-            <div class="portfolio-links">
-              <a href="${item.cover}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="${item.name}">
-                <i class="bx bx-plus"></i>
-              </a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
+          <img src="${item.cover}" class="img-fluid" alt="" />
+          <div class="portfolio-links">
+          <a href="${item.cover}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="${item.name}">
+          <i class="bx bx-plus"></i>
+          </a>
+          <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
           </div>
         </div>`;
-      });
-    }
+    });
   })();
 
   //? ---------------------------- END -------------------------
-})();
+});
+// });
