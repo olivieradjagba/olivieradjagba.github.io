@@ -231,23 +231,23 @@ document.addEventListener("DOMContentLoaded", function () {
     skillsEl.innerHTML = skillContent;
 
     // Projects
-    const projectsEl = select("#portfolio .portfolio-container");
-    const { projects } = resumeInfo;
-    projectsEl.innerHTML = "";
-    projects.forEach((item) => {
-      projectsEl.innerHTML += `
-        <div class="col-lg-4 col-md-6 portfolio-item filter-${item.filter}">
-          <div class="portfolio-wrap">
-          <img src="${item.cover}" class="img-fluid" alt="" />
-          <div class="portfolio-links">
-          <a href="${item.cover}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="${item.name}">
-          <i class="bx bx-plus"></i>
-          </a>
-          <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-          </div>
-        </div>`;
-    });
+    // const projectsEl = select("#portfolio .portfolio-container");
+    // const { projects } = resumeInfo;
+    // projectsEl.innerHTML = "";
+    // projects.forEach((item) => {
+    //   projectsEl.innerHTML += `
+    //     <div class="col-lg-4 col-md-6 portfolio-item filter-${item.filter}">
+    //       <div class="portfolio-wrap">
+    //       <img src="${item.cover}" class="img-fluid" alt="" />
+    //       <div class="portfolio-links">
+    //       <a href="${item.cover}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="${item.name}">
+    //       <i class="bx bx-plus"></i>
+    //       </a>
+    //       <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+    //       </div>
+    //       </div>
+    //     </div>`;
+    // });
   })();
 
   //? ---------------------------- END -------------------------
