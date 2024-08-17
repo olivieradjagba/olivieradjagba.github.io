@@ -322,7 +322,7 @@ main {
   gap: 15px;
 }
 
-.avatar-box {
+.avatar-box img {
   background: var(--bg-gradient-onyx);
   border-radius: 20px;
 }
@@ -546,8 +546,9 @@ main {
   margin-bottom: 10px;
 }
 
-.service-icon-box img {
+.service-icon-box :is(img, ion-icon) {
   margin: auto;
+  max-width: 42px;
 }
 
 .service-content-box {
@@ -563,6 +564,7 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-3);
   line-height: 1.6;
+  text-align: justify;
 }
 
 /**
@@ -1298,6 +1300,13 @@ textarea.form-input::-webkit-resizer {
 }
 
 /*-----------------------------------*\
+  #OTHERS
+\*-----------------------------------*/
+.text-justify {
+  text-align: justify;
+}
+
+/*-----------------------------------*\
   #RESPONSIVE
 \*-----------------------------------*/
 
@@ -1401,10 +1410,6 @@ textarea.form-input::-webkit-resizer {
     gap: 25px;
   }
 
-  .avatar-box {
-    border-radius: 30px;
-  }
-
   .avatar-box img {
     width: 120px;
     /* margin: 15px auto; */
@@ -1487,12 +1492,15 @@ textarea.form-input::-webkit-resizer {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 18px;
-    padding: 30px;
+    padding: 25px;
   }
 
   .service-icon-box {
     margin-bottom: 0;
     margin-top: 5px;
+  }
+  .service-icon-box ion-icon {
+    font-size: 26px;
   }
 
   .service-content-box {

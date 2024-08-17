@@ -22,15 +22,32 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /**
-   * Easy event listener function
+   * Check if the element is a collection
+   * @param {HTMLElement | HTMLElement[]} el
+   * @returns {boolean}
    */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all);
-    if (selectEl) {
+  const isCollection = (el) => el instanceof NodeList || el instanceof HTMLCollection || Array.isArray(el);
+
+  /**
+   * Easy event listener function
+   * @param {string} type
+   * @param {string | HTMLElement | HTMLElement[]} el
+   * @param {Function} handler
+   * @param {boolean} all
+   */
+  const on = (el, event, handler, all = false) => {
+    if (typeof el === "string") {
+      el = select(el, all);
+    } else {
+      all = isCollection(el);
+    }
+
+    if (el) {
       if (all) {
-        selectEl.forEach((e) => e.addEventListener(type, listener));
+        el = Array.from(el);
+        el.forEach((e) => e.addEventListener(event, handler));
       } else {
-        selectEl.addEventListener(type, listener);
+        el.addEventListener(event, handler);
       }
     }
   };
@@ -38,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * Easy on scroll event listener
    */
-  const onscroll = (el, listener) => {
-    el.addEventListener("scroll", listener);
+  const onscroll = (el, handler) => {
+    el.addEventListener("scroll", handler);
   };
 
   /**
@@ -58,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * Useful functions
    */
   const innerText = (els, text, props = null) => {
-    if (Array.isArray(els)) {
+    if (isCollection(els)) {
       els.forEach((el) => {
         el.innerText = text;
         if (props)
@@ -92,6 +109,29 @@ document.addEventListener("DOMContentLoaded", function () {
    */
   const title = `Olivier - Portfolio`;
   innerText(select("title"), title);
+
+  /**
+   * NavBar
+   */
+  // (function () {
+  //   const navbarEl = select(".navbar-list");
+  //   navbarEl.innerHTML = "";
+  //   navbar.forEach((item) => {
+  //     navbarEl.innerHTML += `
+  //     <li class="navbar-item">
+  //       <button class="navbar-link ${item.active ? "active" : ""}" data-nav-link>
+  //         ${item.name}
+  //       </button>
+  //     </li>
+  //     `;
+  //   });
+
+  //   // on("click", navbarEl.children, (el) => {
+  //   //   el.preventDefault();
+  //   //   el.classList.remove("active");
+  //   //   this.classList.add("active");
+  //   // });
+  // })();
 
   /**
    * Profile
@@ -173,6 +213,28 @@ document.addEventListener("DOMContentLoaded", function () {
   })();
 
   /**
+   * About
+   */
+  (function () {
+    // Interests
+    const interestEl = select(".service-list");
+    const { interests } = aboutInfo;
+    interestEl.innerHTML = "";
+    interests.forEach((item) => {
+      interestEl.innerHTML += `
+        <li class="service-item">
+          <div class="service-icon-box">
+            <img src="${item.icon}" alt="${item.title}" />
+          </div>
+          <div class="service-content-box">
+            <h4 class="h4 service-item-title">${item.title}</h4>
+            <p class="service-item-text text-justify">${item.description}</p>
+          </div>
+        </li>`;
+    });
+  })();
+
+  /**
    * Resume
    */
   (function () {
@@ -184,9 +246,9 @@ document.addEventListener("DOMContentLoaded", function () {
       educationEl.innerHTML += `
         <li class="timeline-item">
           <h4 class="h4 timeline-item-title">${item.degree}</h4>
-          <h5 class="h4 univ-comp">${item.university.name}, ${item.university.city}, ${item.university.country}</h5>
+          <h5 class="h4 univ-comp">${item.university.name} (${item.university.shortname}), ${item.university.city}, ${item.university.country}</h5>
           <span>${item.year.from} - ${((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present"}</span>
-          <p class="timeline-text">${item.description}</p>
+          <p class="timeline-text text-justify">${item.description}</p>
         </li>`;
     });
 
@@ -202,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <span>${item.year.from} ${
         !item.ongoing && item.year.from == item.year.to ? "" : "- " + (((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present")
       }</span>
-          <p class="timeline-text">${item.description}</p>
+          <p class="timeline-text text-justify">${item.description}</p>
         </li>`;
     });
 

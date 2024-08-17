@@ -2,6 +2,34 @@
 
 const currentYear = new Date().getFullYear();
 
+const navbar = [
+  {
+    id: "about",
+    name: "About",
+    active: true,
+  },
+  {
+    id: "resume",
+    name: "Resume",
+    active: false,
+  },
+  {
+    id: "portfolio",
+    name: "Portfolio",
+    active: false,
+  },
+  {
+    id: "blog",
+    name: "Blog",
+    active: false,
+  },
+  {
+    id: "contact",
+    name: "Contact",
+    active: false,
+  },
+];
+
 const profileInfo = {
   surname: "Adjagba",
   firstname: "Olivier",
@@ -10,9 +38,9 @@ const profileInfo = {
     return `${firstname} ${surname}`;
   },
   email: "olivier@aims.ac.za",
-  major: "Mathematical and Modeling Engineering",
+  major: "Mathematical Modeling Engineering",
   title: { short: "Eng.", long: "Engineer" },
-  degree: "Mathematics and Modeling", // | AI/ML Master Student",
+  degree: "Mathematical Modeling", // | AI/ML Master Student",
   fulldegree: function () {
     const { degree, title } = this;
     return `${degree} ${title.long}`;
@@ -42,7 +70,7 @@ const profileInfo = {
   },
   website: "olivieradjagba.github.io",
   getAbout: function () {
-    const { email, phone, whatsapp, address, website } = this;
+    // const { email, phone, whatsapp, address, website } = this;
     return [
       { id: "website", name: "Website", class: "my-website", icon: "globe-outline" },
       { id: "degree", name: "Degree", text: "Master", icon: "school-outline" },
@@ -240,6 +268,51 @@ const resumeInfo = {
       filter: "web",
       cover: "assets/img/portfolio/portfolio-9.jpg",
       description: "SIGS is a platform for university students",
+    },
+  ],
+};
+
+const aboutInfo = {
+  interests: [
+    {
+      id: "health",
+      title: "Innovative Healthcare Solutions",
+      icon: "./assets/icons/healthcare1.svg",
+      description: "I am dedicated to developing cutting-edge AI solutions that enhance healthcare and make it more accessible for all.",
+    },
+    {
+      id: "environment",
+      title: "Environmental Sustainability",
+      icon: "./assets/icons/environment1.svg",
+      description: "I am passionate about creating innovative AI solutions to promote environmental sustainability and address climate challenges.",
+    },
+    {
+      id: "agriculture",
+      title: "Precision Agriculture",
+      icon: "./assets/icons/agriculture2.svg",
+      description: "I am committed to advancing AI-driven precision agriculture techniques to optimize farming practices and improve food security.",
+    },
+    {
+      id: "education",
+      title: "Inclusive Education",
+      icon: "./assets/icons/education2.svg",
+      description:
+        "I am dedicated to improving education accessibility for all through AI, ensuring that everyone has the opportunity to learn and grow.",
+    },
+    {
+      id: "community",
+      title: "Empowering Communities",
+      icon: "./assets/icons/community.svg",
+      description: "I am passionate about leveraging AI to empower communities, helping them overcome challenges and improve their quality of life.",
+    },
+    {
+      id: "ethics",
+      title: "Ethical Considerations of AI",
+      icon: "./assets/icons/ethics2.svg",
+      description:
+        "I am committed to using AI responsibly, ensuring that its applications are never used to cause harm but rather to uplift and benefit society.",
+      // description:
+      //   "I am committed to the responsible and ethical development of AI, ensuring that its benefits are accessible to everyone while minimizing potential harms.",
     },
   ],
 };
