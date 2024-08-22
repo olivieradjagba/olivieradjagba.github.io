@@ -83,14 +83,17 @@
               <button class="navbar-link" data-nav-link>Resume</button>
             </li>
             <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>Publications</button>
+            </li>
+            <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Projects</button>
             </li>
             <!-- <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Blog</button>
-            </li> -->
+            </li>
             <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Contact</button>
-            </li>
+            </li> -->
           </ul>
         </nav>
 
@@ -128,7 +131,7 @@
           -->
 
           <section class="service">
-            <h3 class="h3 service-title">My interests</h3>
+            <h3 class="h3 service-title">Interests</h3>
 
             <ul class="service-list"></ul>
           </section>
@@ -310,7 +313,7 @@
           <section class="timeline">
             <div class="title-wrapper">
               <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
+                <ion-icon name="school-outline"></ion-icon>
               </div>
 
               <h3 class="h3">Education</h3>
@@ -322,7 +325,19 @@
           <section class="timeline">
             <div class="title-wrapper">
               <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
+                <ion-icon name="trophy-outline"></ion-icon>
+              </div>
+
+              <h3 class="h3">Awards & Scholarships</h3>
+            </div>
+
+            <ol class="timeline-list awards"></ol>
+          </section>
+
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="barbell-outline"></ion-icon>
               </div>
 
               <h3 class="h3">Experience</h3>
@@ -332,9 +347,43 @@
           </section>
 
           <section class="skill">
-            <h3 class="h3 skills-title">My skills</h3>
+            <h3 class="h3 skills-title">Skills</h3>
 
-            <ul class="skills-list content-card" data-skills="python,r,matlab,c/c++,cuda,html/css,js,sql,git,vue,react,php"></ul>
+            <ul class="skills-list content-card" data-skills="python,r,c/c++/cuda,jax,pytorch,keras,sklearn,git,gcp"></ul>
+          </section>
+        </article>
+
+        <!--
+        - #PUBLICATIONS
+        -->
+
+        <article class="awards" data-page="publications">
+          <header>
+            <h2 class="h2 article-title">Publications</h2>
+          </header>
+
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="newspaper-outline"></ion-icon>
+              </div>
+
+              <h3 class="h3">Publications</h3>
+            </div>
+
+            <ol class="timeline-list publications"></ol>
+          </section>
+
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="megaphone-outline"></ion-icon>
+              </div>
+
+              <h3 class="h3">Conferences</h3>
+            </div>
+
+            <ol class="timeline-list conferences"></ol>
           </section>
         </article>
 
@@ -354,15 +403,19 @@
               </li>
 
               <li class="filter-item">
-                <button data-filter-btn>Web design</button>
+                <button data-filter-btn>Healthcare</button>
               </li>
 
               <li class="filter-item">
-                <button data-filter-btn>Applications</button>
+                <button data-filter-btn>Environment</button>
               </li>
 
               <li class="filter-item">
-                <button data-filter-btn>Web development</button>
+                <button data-filter-btn>Agriculture</button>
+              </li>
+
+              <li class="filter-item">
+                <button data-filter-btn>Education</button>
               </li>
             </ul>
 
@@ -381,19 +434,28 @@
                 </li>
 
                 <li class="select-item">
-                  <button data-select-item>Web design</button>
+                  <button data-select-item>Healthcare</button>
                 </li>
 
                 <li class="select-item">
-                  <button data-select-item>Applications</button>
+                  <button data-select-item>Environment</button>
                 </li>
 
                 <li class="select-item">
-                  <button data-select-item>Web development</button>
+                  <button data-select-item>Agriculture</button>
+                </li>
+
+                <li class="select-item">
+                  <button data-filter-btn>Education</button>
                 </li>
               </ul>
             </div>
 
+            <!-- <section class="service">
+              <h3 class="h3 service-title">Interests</h3>
+
+              <ul class="service-list"></ul>
+            </section> -->
             <ul class="project-list">
               <li class="project-item active" data-filter-item data-category="web development">
                 <a href="#">

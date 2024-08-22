@@ -2,6 +2,8 @@
 
 const currentYear = new Date().getFullYear();
 
+const shortMonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 const navbar = [
   {
     id: "about",
@@ -40,7 +42,8 @@ const profileInfo = {
   email: "olivier@aims.ac.za",
   major: "Mathematical Modeling Engineering",
   title: { short: "Eng.", long: "Engineer" },
-  degree: "Mathematical Modeling", // | AI/ML Master Student",
+  // degree: "Mathematical Modeling", // | AI/ML Master Student",
+  degree: "AI/ML",
   fulldegree: function () {
     const { degree, title } = this;
     return `${degree} ${title.long}`;
@@ -109,29 +112,51 @@ const resumeInfo = {
       id: "aims",
       university: universities.find((u) => u.id === "aims"),
       degree: "Master in AI for Science",
-      grade: "",
-      year: { from: 2023, to: 2024 },
-      ongoing: true,
+      grade: "Distinction",
+      // duration: { from: { month: 9, year: 2023 }, to: { month: 7, year: 2024 } },
+      duration: { from: 2023, to: 2024 },
+      ongoing: false,
       description:
-        "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend",
+        "<p>Founded by Google DeepMind, this prestigious program provided an advanced, cutting-edge education in artificial intelligence, focusing on applications in scientific fields. The curriculum was enriched by instruction from leading experts, including Max Welling, known for his groundbreaking work on Variational Autoencoders (VAEs) and Graph Neural Networks. This rigorous training allowed me to gain unparalleled knowledge in areas such as Computer Vision, Reinforcement Learning, Natural Language Processing (NLP), Bayesian Inference, CUDA/GPU programming, Cloud Computing, etc...</p>" +
+        "<p>A highlight of my studies was the opportunity to work on a project titled <em class='topic'>Exploring the Geographical Links Between Environmental Factors and Population Density on Dengue Incidence Prediction</em>. This project was made possible thanks to CERI (Centre for Epidemic Response and Innovation) at Stellenbosch University. Under the guidance of Dr. Houriiyah Tegaly and Prof. José Lourenço, I developed a novel approach to predicting dengue cases using Convolutional LSTM. Unlike conventional methods that rely solely on information from a specific region, my approach incorporated data from surrounding areas, significantly enhancing the model's accuracy and predictive capability.</p>",
     },
     {
       id: "gmm",
       university: universities.find((u) => u.id === "unstim"),
       degree: "Engineering Degree",
       grade: "15.42/20",
-      year: { from: 2018, to: 2021 },
+      // duration: { from: { month: 11, year: 2018 }, to: { month: 12, year: 2021 } },
+      duration: { from: 2018, to: 2021 },
       description:
-        "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend",
+        "<p>During this study, funded by a Beninese government scholarship, I gained extensive knowledge in applying mathematics to real-world problems. The program provided a solid foundation in areas such as mathematical modelling, computer science, numerical analysis, data science, optimization, and programming. This blend of disciplines equipped me with the tools to address complex challenges with analytical precision and computational efficiency.</p>" +
+        "<p>At the end of my study, my dissertation was based on <em class='topic'>Modelling the relationship between damage of fall armyworm (Spodoptera frugiperda) and maize yield in Benin</em>. This project allowed me to delve into dynamic models like SIR, SEIR and others to describe the interactions between maize and pest populations and the effects of control measures. Through this work, I gained valuable insights into epidemiological models, which further solidified my understanding of how mathematical modelling can be applied to agriculture and beyond.</p>",
     },
     {
       id: "prepa",
       university: universities.find((u) => u.id === "unstim"),
       degree: "Preparatory Classes",
       grade: "74.85/100",
-      year: { from: 2016, to: 2018 },
+      // duration: { from: { month: 11, year: 2016 }, to: { month: 8, year: 2018 } },
+      duration: { from: 2016, to: 2018 },
       description:
-        "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend",
+        "During my preparatory classes, I immersed myself in both pure and applied mathematics, delving deep into programming, numerical analysis, probabilities & statistics, and optimization, among other subjects. These classes were designed to bridge theory and application, ensuring a strong foundation across various disciplines. This rigorous preparation equipped me to confidently pursue any of the specialized engineering programs that followed, including Mathematical Modelling Engineering, Civil Engineering, and Energy and Process Engineering. Ultimately, I chose to focus on Mathematical Modelling Engineering, which aligned with my passion for applying mathematical concepts to solve real-world challenges.",
+    },
+  ],
+  awards: [
+    {
+      id: "aims",
+      title: "Google DeepMind Scholarship",
+      letter: "https://drive.google.com/file/d/1Wq3sK7GKtF7JI_msKpvlsZDZ1URGh671/view?usp=sharing",
+      description:
+        "Awarded to the top 40 students across Africa who successfully passed the entrance exam, this scholarship supported my studies in the AI for Science structured master’s program at AIMS South Africa. It enabled me to gain advanced knowledge and skills in AI from leading experts in the field.",
+      duration: { from: 2023, to: 2024 },
+    },
+    {
+      id: "unstim",
+      title: "Beninese Government Scholarship",
+      description:
+        "Granted to the top 60 students who excelled in the entrance exam for the preparatory classes, this scholarship covered five years of study, including two years of preparatory classes and three years of specialization in engineering. It provided me with a strong foundation in mathematical modeling, computer science, and engineering.",
+      duration: { from: 2016, to: 2021 },
     },
   ],
   experience: [
@@ -139,7 +164,7 @@ const resumeInfo = {
       id: "cosit",
       company: "COSIT Benin",
       position: "Web Front-end developer",
-      year: { from: 2022, to: 2023 },
+      duration: { from: 2022, to: 2023 },
       description: "Design and maintenance of a web platform.",
       achievements: [
         "Development of a SIG platform for UNTIM university",
@@ -155,8 +180,8 @@ const resumeInfo = {
       id: "gti",
       company: "Green Tech Innovation",
       position: "Intern",
-      year: { from: 2021, to: 2022 },
-      description: "Bio-statistics analysis and web development.",
+      duration: { from: 2021, to: 2022 },
+      description: "Bio-statistics analysis.", //and web development.",
       achievements: [
         "Data analysis on the molecular genetic characterisation of plantain accessions in Benin for a PhD student",
         "Data analysis on master’s thesis topics",
@@ -171,7 +196,7 @@ const resumeInfo = {
       id: "dp",
       company: "dP Divecosys in partnership with UNSTIM",
       position: "Intern",
-      year: { from: 2021, to: 2021 },
+      duration: { from: 2021, to: 2021 },
       description: "Data collection on fall armyworm.",
       achievements: [
         "Implementation of an experimental device on the agroecological management of the fall armyworm for the « Global Trial on Agroecological Approches to Fall Armyworm Management » project",
@@ -184,33 +209,39 @@ const resumeInfo = {
   ],
   skills: [
     { id: "python", name: "Python", level: 90 },
-    { id: "r", name: "R", level: 80 },
+    { id: "r", name: "R", level: 75 },
     { id: "matlab", name: "MATLAB", level: 75 },
-    { id: "c/c++", name: "C/C++", level: 70 },
-    { id: "cuda", name: "CUDA", level: 60 },
+    { id: "c/c++/cuda", name: "C/C++/CUDA", level: 60 },
+    { id: "keras", name: "Keras", level: 80 },
+    { id: "pytorch", name: "Pytorch", level: 70 },
+    { id: "jax", name: "JAX", level: 60 },
+    { id: "sklearn", name: "Scikit-Learn", level: 75 },
+    { id: "gcp", name: "Google Cloud Computing", level: 50 },
     { id: "html/css", name: "HTML/CSS", level: 95 },
     { id: "js", name: "JavaScript", level: 90 },
     { id: "sql", name: "SQL", level: 80 },
-    { id: "git", name: "Git", level: 80 },
+    { id: "git", name: "Git/GitHub", level: 70 },
     { id: "vue", name: "VueJS", level: 85 },
     { id: "react", name: "ReactJS", level: 75 },
     { id: "php", name: "PHP", level: 70 },
   ],
   projects: [
     {
-      id: "app1",
-      name: "App 1",
-      category: "app",
-      filter: "app",
+      id: "car-reid",
+      name: "Vehicule re-identification using Siamese Network model and Triplet Loss",
+      category: "others",
+      // filter: "app",
       cover: "assets/img/portfolio/portfolio-1.jpg",
+      source: "",
       description: "SIGS is a platform for university students",
     },
     {
-      id: "web3",
-      name: "Web 3",
+      id: "movilens",
+      name: "MovieLens Collaborative Recommender System with Parallelized AlLS Optimization",
       category: "web",
       filter: "web",
       cover: "assets/img/portfolio/portfolio-2.jpg",
+      source: "",
       description: "SIGS is a platform for university students",
     },
     {

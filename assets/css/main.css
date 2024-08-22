@@ -6,3 +6,28 @@
   font-weight: var(--fw-100);
   /* font-weight: lighter; */
 }
+
+a.contact-link:hover {
+  color: var(--orange-yellow-crayola);
+}
+
+.timeline-item-title {
+  position: relative;
+  display: inline-flex;
+}
+
+.italic,
+.topic {
+  font-style: italic;
+}
+
+.link,
+.topic {
+  color: var(--orange-yellow-crayola);
+}
+
+.timeline-item-title .link {
+  margin-left: 5px;
+  margin-top: 2px;
+  /* font-size: var(--fs-7); */
+}

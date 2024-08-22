@@ -181,14 +181,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if (findInfo) {
         aboutContent += `
           <li class="contact-item">
-          <div class="icon-box">
-          <ion-icon name="${findInfo.icon}"></ion-icon>
-          </div>
-          <div class="contact-info">
-                <p class="contact-title">${findInfo.name}</p>
-                <span class="${findInfo.class}">${findInfo.text || ""}</span>
-              </div>
-            </li>`;
+            <div class="icon-box">
+            <ion-icon name="${findInfo.icon}"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">${findInfo.name}</p>
+              <span class="${findInfo.class}">${findInfo.text || ""}</span>
+            </div>
+          </li>`;
       }
     });
     innerHTML(aboutEl, aboutContent);
@@ -247,8 +247,27 @@ document.addEventListener("DOMContentLoaded", function () {
         <li class="timeline-item">
           <h4 class="h4 timeline-item-title">${item.degree}</h4>
           <h5 class="h4 univ-comp">${item.university.name} (${item.university.shortname}), ${item.university.city}, ${item.university.country}</h5>
-          <span>${item.year.from} - ${((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present"}</span>
-          <p class="timeline-text text-justify">${item.description}</p>
+          <span>${item.duration.from} - ${((item.duration.to < currentYear || !item.ongoing) && item.duration.to) || "present"}</span>
+          <div class="timeline-text text-justify">${item.description}</div>
+        </li>`;
+    });
+
+    // Awards
+    const awardsEl = select(".timeline-list.awards");
+    const { awards } = resumeInfo;
+    awardsEl.innerHTML = "";
+    awards.forEach((item) => {
+      awardsEl.innerHTML += `
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title">${item.title} ${
+        item.letter
+          ? '<span><a href="' +
+            item.letter +
+            '" target="_blank" title="Offer letter"><ion-icon name="link-outline" class="h4 link"></ion-icon></a></span>'
+          : ""
+      }</h4>
+          <span>${item.duration.from} - ${((item.duration.to < currentYear || !item.ongoing) && item.duration.to) || "present"}</span>
+          <div class="timeline-text text-justify">${item.description}</div>
         </li>`;
     });
 
@@ -261,8 +280,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <li class="timeline-item">
           <h4 class="h4 timeline-item-title">${item.position}</h4>
           <h5 class="h4 univ-comp">${item.company}</h5>
-          <span>${item.year.from} ${
-        !item.ongoing && item.year.from == item.year.to ? "" : "- " + (((item.year.to < currentYear || !item.ongoing) && item.year.to) || "present")
+          <span>${item.duration.from} ${
+        !item.ongoing && item.duration.from == item.duration.to
+          ? ""
+          : "- " + (((item.duration.to < currentYear || !item.ongoing) && item.duration.to) || "present")
       }</span>
           <p class="timeline-text text-justify">${item.description}</p>
         </li>`;
