@@ -4,6 +4,28 @@ const currentYear = new Date().getFullYear();
 
 const shortMonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+/**
+ * To get a given social media link
+ * @param {string} username
+ * @param {string} social
+ * @returns string
+ */
+const getSocialLink = (username, social) => {
+  if (social == "github") return "https://github.com/" + username;
+  if (social == "linkedin") return "https://www.linkedin.com/in/" + username;
+  if (social == "twitter") return "https://twitter.com/" + username;
+  // Throw an exception
+  throw new Error("This social media has not been taken into account");
+};
+
+/**
+ * To get a given github repository's url
+ * @param {string} repoName
+ * @param {string} username
+ * @returns string
+ */
+const getRepo = (repoName, username = "olivieradjagba") => getSocialLink(username, "github") + "/" + repoName;
+
 const navbar = [
   {
     id: "about",
@@ -50,20 +72,26 @@ const profileInfo = {
   },
   imgSrc: "assets/images/profile-img.png",
   social: [
-    { id: "linkedin", name: "LinkedIn", icon: "logo-linkedin", url: "https://www.linkedin.com/in/olivieradjagba" },
-    { id: "github", name: "Github", icon: "logo-github", url: "https://github.com/olivieradjagba" },
-    { id: "twitter", name: "Twitter", icon: "logo-twitter", url: "https://twitter.com/olivier_adjagba" },
+    { id: "linkedin", name: "LinkedIn", icon: "logo-linkedin", url: getSocialLink("olivieradjagba", "linkedin") },
+    { id: "github", name: "Github", icon: "logo-github", url: getSocialLink("olivieradjagba", "github") },
+    { id: "twitter", name: "Twitter", icon: "logo-twitter", url: getSocialLink("olivier_adjagba", "twitter") },
   ],
   phone: {
-    mobile: "+27 071 432 1807",
+    // mobile: "+27 071 432 1807",
+    mobile: "+229 67 345 963",
     whatsapp: "+229 67 345 963",
   },
   address: {
-    country: "South Africa",
-    city: "Cape Town",
-    district: "Muizenberg",
-    street: "06 Melrose Road",
-    postalcode: "7945",
+    // country: "South Africa",
+    // city: "Cape Town",
+    // district: "Muizenberg",
+    // street: "06 Melrose Road",
+    // postalcode: "7945",
+    country: "Benin",
+    city: "Abomey-Calavi",
+    // district: "Muizenberg",
+    // street: "06 Melrose Road",
+    // postalcode: "7945",
   },
   fulladdress: function (detailled = false) {
     const { address } = this;
@@ -225,80 +253,34 @@ const resumeInfo = {
     { id: "react", name: "ReactJS", level: 75 },
     { id: "php", name: "PHP", level: 70 },
   ],
+
   projects: [
     {
+      id: "bird-cnn",
+      title: "Automated Detection of Bird presence using CNN",
+      category: "Environment",
+      source: getRepo("cnn-bird-presence-absence"),
+      languages: ["python"],
+      description:
+        "This project utilizes a deep learning approach to automatically determine whether a given vocalization originates from a bird. By leveraging Convolutional Neural Networks (CNNs), this model offers a powerful tool for environmental monitoring, aiding in biodiversity studies and conservation efforts.",
+    },
+    {
       id: "car-reid",
-      name: "Vehicule re-identification using Siamese Network model and Triplet Loss",
-      category: "others",
-      // filter: "app",
-      cover: "assets/img/portfolio/portfolio-1.jpg",
-      source: "",
-      description: "SIGS is a platform for university students",
+      title: "Vehicule Re-identification using Siamese Network model and Triplet Loss",
+      category: "Others",
+      source: getRepo("vehicule-reidentification"),
+      languages: ["python"],
+      description:
+        "This project utilizes a Siamese Network and Triplet Loss, which helps the model to distinguish between vehicles by minimizing the distance between images of the same vehicle and maximizing the distance between different ones. This method enhances vehicle tracking accuracy in security and traffic systems.",
     },
     {
       id: "movilens",
-      name: "MovieLens Collaborative Recommender System with Parallelized AlLS Optimization",
-      category: "web",
-      filter: "web",
-      cover: "assets/img/portfolio/portfolio-2.jpg",
-      source: "",
-      description: "SIGS is a platform for university students",
-    },
-    {
-      id: "app2",
-      name: "App 2",
-      category: "app",
-      filter: "app",
-      cover: "assets/img/portfolio/portfolio-3.jpg",
-      description: "SIGS is a platform for university students",
-    },
-    {
-      id: "card2",
-      name: "Card 2",
-      category: "card",
-      filter: "card",
-      cover: "assets/img/portfolio/portfolio-4.jpg",
-      description: "SIGS is a platform for university students",
-    },
-    {
-      id: "web2",
-      name: "Web 2",
-      category: "web",
-      filter: "web",
-      cover: "assets/img/portfolio/portfolio-5.jpg",
-      description: "SIGS is a platform for university students",
-    },
-    {
-      id: "app3",
-      name: "App 3",
-      category: "app",
-      filter: "app",
-      cover: "assets/img/portfolio/portfolio-6.jpg",
-      description: "SIGS is a platform for university students",
-    },
-    {
-      id: "card1",
-      name: "Card 1",
-      category: "card",
-      filter: "card",
-      cover: "assets/img/portfolio/portfolio-7.jpg",
-      description: "SIGS is a platform for university students",
-    },
-    {
-      id: "card3",
-      name: "Card 3",
-      category: "card",
-      filter: "card",
-      cover: "assets/img/portfolio/portfolio-8.jpg",
-      description: "SIGS is a platform for university students",
-    },
-    {
-      id: "web3",
-      name: "Web 3",
-      category: "web",
-      filter: "web",
-      cover: "assets/img/portfolio/portfolio-9.jpg",
-      description: "SIGS is a platform for university students",
+      title: "MovieLens Recommender System with Parallelized ALS Optimization",
+      category: "Others",
+      source: getRepo("aml-project"),
+      languages: ["python"],
+      description:
+        "This project implements a collaborative filtering recommender system using the MovieLens dataset. It employs Parallelized Alternating Least Squares (ALS), a matrix factorization technique optimized for scalability. By running computations in parallel, this method efficiently handles large datasets, providing personalized movie recommendations based on user preferences.",
     },
   ],
 };

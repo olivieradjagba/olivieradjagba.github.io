@@ -31,3 +31,33 @@ a.contact-link:hover {
   margin-top: 2px;
   /* font-size: var(--fs-7); */
 }
+
+.project-item {
+  position: relative;
+  padding-bottom: 55px;
+}
+
+.project-item-extra {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 20px;
+}
+.project-item-tags {
+  display: flex;
+  justify-content: space-between;
+}
+
+.languages {
+  display: flex;
+}
+.languages > * {
+  padding-left: 1px;
+}
+
+@media (min-width: 580px) {
+  .project-item-extra {
+    padding: 25px;
+  }
+}

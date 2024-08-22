@@ -518,13 +518,15 @@ main {
   margin-bottom: 20px;
 }
 
-.service-list {
+.service-list,
+.project-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
 }
 
-.service-item {
+.service-item,
+.project-item {
   position: relative;
   background: var(--border-gradient-onyx);
   padding: 20px;
@@ -533,7 +535,7 @@ main {
   z-index: 1;
 }
 
-.service-item::before {
+:is(.service-item, .project-item)::before {
   content: "";
   position: absolute;
   inset: 1px;
@@ -551,15 +553,18 @@ main {
   max-width: 42px;
 }
 
-.service-content-box {
+.service-content-box,
+.project-content-box {
   text-align: center;
 }
 
-.service-item-title {
+.service-item-title,
+.project-item-title {
   margin-bottom: 7px;
 }
 
-.service-item-text {
+.service-item-text,
+.project-item-text {
   color: var(--light-gray);
   font-size: var(--fs-6);
   font-weight: var(--fw-3);
@@ -970,14 +975,14 @@ main {
   --eerie-black-2: hsl(240, 2%, 20%);
 }
 
-.project-list {
+/* .project-list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-bottom: 10px;
 }
-
-.project-item {
+*/
+/* .project-item {
   display: none;
 }
 
@@ -993,8 +998,8 @@ main {
   100% {
     transform: scale(1);
   }
-}
-
+} */
+/*
 .project-item > a {
   width: 100%;
 }
@@ -1072,7 +1077,7 @@ main {
   font-weight: var(--fw-400);
   text-transform: capitalize;
   line-height: 1.3;
-}
+} */
 
 .project-category {
   color: var(--light-gray-70);
@@ -1487,7 +1492,8 @@ textarea.form-input::-webkit-resizer {
 
   /* service */
 
-  .service-item {
+  .service-item,
+  .project-item {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -1503,7 +1509,8 @@ textarea.form-input::-webkit-resizer {
     font-size: 26px;
   }
 
-  .service-content-box {
+  .service-content-box,
+  .project-content-box {
     text-align: left;
   }
 
@@ -1751,7 +1758,7 @@ textarea.form-input::-webkit-resizer {
 
   /* portfolio and blog grid */
 
-  .project-list,
+  /* .project-list, */
   .blog-posts-list {
     grid-template-columns: 1fr 1fr;
   }
@@ -1844,7 +1851,8 @@ textarea.form-input::-webkit-resizer {
 
   /* service */
 
-  .service-list {
+  .service-list,
+  .project-list {
     grid-template-columns: 1fr 1fr;
     gap: 20px 25px;
   }
@@ -1865,9 +1873,9 @@ textarea.form-input::-webkit-resizer {
    * PORTFOLIO
    */
 
-  .project-list {
+  /* .project-list {
     grid-template-columns: repeat(3, 1fr);
-  }
+  } */
 
   /**
    * BLOG

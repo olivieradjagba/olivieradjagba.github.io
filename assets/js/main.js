@@ -217,11 +217,11 @@ document.addEventListener("DOMContentLoaded", function () {
    */
   (function () {
     // Interests
-    const interestEl = select(".service-list");
+    const interestsEl = select(".service-list");
     const { interests } = aboutInfo;
-    interestEl.innerHTML = "";
+    interestsEl.innerHTML = "";
     interests.forEach((item) => {
-      interestEl.innerHTML += `
+      interestsEl.innerHTML += `
         <li class="service-item">
           <div class="service-icon-box">
             <img src="${item.icon}" alt="${item.title}" />
@@ -331,6 +331,39 @@ document.addEventListener("DOMContentLoaded", function () {
     //       </div>
     //     </div>`;
     // });
+  })();
+
+  /**
+   * Projects
+   */
+  (function () {
+    const projectsEl = select(".project-list");
+    const { projects } = resumeInfo;
+    projectsEl.innerHTML = "";
+    projects.forEach((item) => {
+      // <p class="project-category">${item.category}</p>
+      projectsEl.innerHTML += `
+        <li class="project-item active" data-filter-item data-category="${item.category}">
+          <div class="project-content-box">
+            <h4 class="h4 project-item-title">${item.title}</h4>
+            <p class="project-item-text text-justify">${item.description}</p>
+          </div>
+          <div class="project-item-extra">
+            <div class="project-item-tags">
+              <a href="${item.source}" target="_blank">
+                <img src="https://img.shields.io/badge/GitHub-Repo-FFBC5E?logo=github" alt="GitHub Repo">
+              </a>
+              <div class="languages">${item.languages
+                .map(
+                  (language) =>
+                    `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${language}/${language}-original.svg" alt="${language}" width="20">`
+                )
+                .join("")}
+              </div>
+            </div>
+          </div>
+        </li>`;
+    });
   })();
 
   //? ---------------------------- END -------------------------
