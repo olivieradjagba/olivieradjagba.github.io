@@ -109,6 +109,7 @@ const profileInfo = {
       { id: "phone", name: "Phone", class: "my-phone", icon: "phone-portrait-outline" },
       { id: "email", name: "Email", class: "my-email", icon: "mail-outline" },
       { id: "whatsapp", name: "Whatsapp", class: "my-whatsapp", icon: "logo-whatsapp" },
+      { id: "cv", name: "CV", class: "my-cv", icon: "document-text-outline" },
     ];
   },
   getPhone: function () {
@@ -156,7 +157,7 @@ const resumeInfo = {
       // duration: { from: { month: 11, year: 2018 }, to: { month: 12, year: 2021 } },
       duration: { from: 2018, to: 2021 },
       description:
-        "<p>During this study, funded by a Beninese government scholarship, I gained extensive knowledge in applying mathematics to real-world problems. The program provided a solid foundation in areas such as mathematical modelling, computer science, numerical analysis, data science, optimization, and programming. This blend of disciplines equipped me with the tools to address complex challenges with analytical precision and computational efficiency.</p>" +
+        "<p>During this study, funded by Benin government scholarship, I gained extensive knowledge in applying mathematics to real-world problems. The program provided a solid foundation in areas such as mathematical modelling, computer science, numerical analysis, data science, optimization, and programming. This blend of disciplines equipped me with the tools to address complex challenges with analytical precision and computational efficiency.</p>" +
         "<p>At the end of my study, my dissertation was based on <em class='topic'>Modelling the relationship between damage of fall armyworm (Spodoptera frugiperda) and maize yield in Benin</em>. This project allowed me to delve into dynamic models like SIR, SEIR and others to describe the interactions between maize and pest populations and the effects of control measures. Through this work, I gained valuable insights into epidemiological models, which further solidified my understanding of how mathematical modelling can be applied to agriculture and beyond.</p>",
     },
     {
@@ -181,7 +182,7 @@ const resumeInfo = {
     },
     {
       id: "unstim",
-      title: "Beninese Government Scholarship",
+      title: "Benin Government Scholarship",
       description:
         "Granted to the top 60 students who excelled in the entrance exam for the preparatory classes, this scholarship covered five years of study, including two years of preparatory classes and three years of specialization in engineering. It provided me with a strong foundation in mathematical modeling, computer science, and engineering.",
       duration: { from: 2016, to: 2021 },

@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
     innerHTML(addressEls, `<address>${profileInfo.fulladdress()}</address>`);
     const locationEls = select(".my-location", true);
     innerHTML(locationEls, `<address>${profileInfo.fulladdress(true)}</address>`);
-    // Media
+    // CV
   })();
 
   /**
