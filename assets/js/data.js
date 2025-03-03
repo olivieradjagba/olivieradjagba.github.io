@@ -290,7 +290,7 @@ const resumeInfo = {
             source: getRepo("sign-language-alphabet-recognition"),
             languages: ["python"],
             description:
-                "This project explores sign language recognition using three deep learning models: CNN, ResNet18, and Vision Transformer (ViT). The CNN achieved the highest accuracy (98.94%) with fast training but limited adaptability. ResNet18 (97.62%) balanced efficiency and generalization, while ViT (96.83%) captured complex patterns but required longer training. The project includes a full pipeline for training and evaluating sign language classifiers.",
+                "This project classifies American Sign Language (ASL) alphabets and digits using deep learning. Three models—CNN, ResNet18 Transfer Learning, and Vision Transformer (ViT)—were trained on the ASL dataset with a 70-15-15 train-validation-test split. The CNN achieved the highest accuracy (98.94%), followed by ResNet18 (97.62%) and ViT (96.83%). The project includes performance comparisons, confusion matrices, and a setup guide.",
         },
     ],
 };
