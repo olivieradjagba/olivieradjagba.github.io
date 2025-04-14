@@ -14,6 +14,7 @@ const getSocialLink = (username, social) => {
     if (social == "github") return "https://github.com/" + username;
     if (social == "linkedin") return "https://www.linkedin.com/in/" + username;
     if (social == "twitter") return "https://twitter.com/" + username;
+    if (social == "orcid") return "https://orcid.org/" + username;
     // Throw an exception
     throw new Error("This social media has not been taken into account");
 };
@@ -75,23 +76,22 @@ const profileInfo = {
         { id: "linkedin", name: "LinkedIn", icon: "logo-linkedin", url: getSocialLink("olivieradjagba", "linkedin") },
         { id: "github", name: "Github", icon: "logo-github", url: getSocialLink("olivieradjagba", "github") },
         { id: "twitter", name: "Twitter", icon: "logo-twitter", url: getSocialLink("olivier_adjagba", "twitter") },
+        { id: "orcid", name: "Orcid", icon: "logo-orcid", url: getSocialLink("0009-0004-0861-4637", "orcid") }, // Logo to be fixed not in ionicons
     ],
     phone: {
-        // mobile: "+27 071 432 1807",
-        mobile: "+229 67 345 963",
+        mobile: "+27 071 432 1807",
+        // mobile: "+229 67 345 963",
         whatsapp: "+229 67 345 963",
     },
     address: {
-        // country: "South Africa",
-        // city: "Cape Town",
-        // district: "Muizenberg",
-        // street: "06 Melrose Road",
-        // postalcode: "7945",
-        country: "Benin",
-        city: "Abomey-Calavi",
-        // district: "Muizenberg",
-        // street: "06 Melrose Road",
-        // postalcode: "7945",
+        country: "South Africa",
+        city: "Stellenbosch Central",
+        district: "Stellenbosch",
+        street: "40 Kromriver Road",
+        postalcode: "7600",
+        // country: "Benin",
+        // city: "Abomey-Calavi",
+        // district: "Atlantic",
     },
     fulladdress: function (detailled = false) {
         const { address } = this;
@@ -120,6 +120,13 @@ const profileInfo = {
 
 const universities = [
     {
+        id: "sun",
+        name: "Stellenbosch University",
+        shortname: "SU",
+        city: "Stellenbosch",
+        country: "South Africa",
+    },
+    {
         id: "aims",
         name: "African Institute for Mathematical Sciences",
         shortname: "AIMS",
@@ -137,6 +144,18 @@ const universities = [
 
 const resumeInfo = {
     education: [
+        {
+            id: "sun",
+            university: universities.find((u) => u.id === "sun"),
+            degree: "Master in Applied Mathematics",
+            // grade: "Distinction",
+            // duration: { from: { month: 9, year: 2024 }, to: { month: 8, year: 2026 } },
+            duration: { from: 2024, to: 2026 },
+            ongoing: true,
+            description:
+                "<p>Hosted at the South African Centre for Epidemiological Modelling and Analysis (SACEMA), this research master's program focuses on developing advanced tools and methodologies to estimate population immunity against poliovirus and assess outbreak risks across Africa. The work is rooted in real-world public health challenges, aiming to support global eradication efforts through data-driven insights and tools.</p>" +
+                "<p>My current project is centered around <em class='topic'>Polio immunity estimation and outbreak risk analysis across Africa</em>. I am building a set of user-friendly, flexible tools—including an <strong>R package</strong> tailored for data analysts and a <strong>Shiny application</strong> designed for health workers—to estimate immunity levels even in the presence of complex and diverse vaccination schedules. These tools are meant to be adaptable across countries, regardless of their specific immunization programs. The ultimate goal is to enable timely and accurate decision-making for disease prevention and control.</p>",
+        },
         {
             id: "aims",
             university: universities.find((u) => u.id === "aims"),
