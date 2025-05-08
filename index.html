@@ -1,223 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title></title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
 
-        <!--
+    <!--
     - favicon
     -->
-        <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" class="head-icon" />
+    <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" class="head-icon" />
 
-        <!--
+    <!--
     - custom css link
     -->
-        <link rel="stylesheet" href="./assets/css/style.css" />
-        <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
 
-        <!--
+    <!--
     - google font link
     -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  </head>
 
-    <body>
-        <!--
+  <body>
+    <!--
     - #MAIN
     -->
 
-        <main>
-            <!--
+    <main>
+      <!--
       - #SIDEBAR
       -->
 
-            <aside class="sidebar" data-sidebar>
-                <div class="sidebar-info">
-                    <figure class="avatar-box">
-                        <img src="./assets/images/my-avatar.png" alt="" class="my-profile" width="80" />
-                    </figure>
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img src="./assets/images/my-avatar.png" alt="" class="my-profile" width="80" />
+          </figure>
 
-                    <div class="info-content">
-                        <h1 class="my-name"></h1>
-                        <p class="title my-degree"></p>
-                    </div>
+          <div class="info-content">
+            <h1 class="my-name"></h1>
+            <p class="title my-degree"></p>
+          </div>
 
-                    <button class="info_more-btn" data-sidebar-btn>
-                        <span>Show Contacts</span>
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
 
-                        <ion-icon name="chevron-down"></ion-icon>
-                    </button>
-                </div>
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
 
-                <div class="sidebar-info_more">
-                    <div class="separator"></div>
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
 
-                    <ul class="contacts-list" data-contact-info="email,phone,address"></ul>
+          <ul class="contacts-list" data-contact-info="email,phone,address"></ul>
 
-                    <div class="separator"></div>
+          <div class="separator"></div>
 
-                    <ul class="social-list" data-social-info="linkedin,github,twitter"></ul>
-                    <!-- From main.js -->
-                </div>
-            </aside>
+          <ul class="social-list" data-social-info="linkedin,github,twitter,orcid"></ul>
+          <!-- From main.js -->
+        </div>
+      </aside>
 
-            <!--
+      <!--
       - #main-content
       -->
 
-            <div class="main-content">
-                <!--
+      <div class="main-content">
+        <!--
         - #NAVBAR
         -->
 
-                <nav class="navbar">
-                    <ul class="navbar-list">
-                        <li class="navbar-item">
-                            <button class="navbar-link active" data-nav-link>About</button>
-                        </li>
-                        <li class="navbar-item">
-                            <button class="navbar-link" data-nav-link>Resume</button>
-                        </li>
-                        <!-- <li class="navbar-item">
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <button class="navbar-link active" data-nav-link>About</button>
+            </li>
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>Resume</button>
+            </li>
+            <!-- <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Publications</button>
             </li> -->
-                        <li class="navbar-item">
-                            <button class="navbar-link" data-nav-link>Projects</button>
-                        </li>
-                        <!-- <li class="navbar-item">
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>Projects</button>
+            </li>
+            <!-- <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Blog</button>
             </li>
             <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Contact</button>
             </li> -->
-                    </ul>
-                </nav>
+          </ul>
+        </nav>
 
-                <!--
+        <!--
         - #ABOUT
         -->
 
-                <article class="about active" data-page="about">
-                    <header>
-                        <h2 class="h2 article-title">About me</h2>
-                    </header>
+        <article class="about active" data-page="about">
+          <header>
+            <h2 class="h2 article-title">About me</h2>
+          </header>
 
-                    <section class="about-text text-justify">
-                        <p>
-                            Hello! My name is Olivier, and I am a mathematical modeling engineer and a master's graduate in the AI for Science program
-                            at the African Institute for Mathematical Sciences (AIMS) in South Africa. Growing up in a family with limited financial
-                            means and in a village where agriculture is the main activity, I witnessed firsthand the challenges associated with
-                            healthcare access, agricultural resilience, and educational equity. Seasonal floods in my village regularly disrupt daily
-                            life and reduce farmland availability, underscoring the urgent need for climate solutions. Moreover, the education system
-                            in isolated areas like mine often suffers from deep inequalities. These lived experiences have fueled my passion for
-                            developing impactful, data-driven solutions.
-                        </p>
-                        <p>
-                            To address these issues, I have focused my academic and professional journey on leveraging Artificial Intelligence and
-                            mathematical modeling to tackle challenges in healthcare, climate, and education. My journey began with an Engineering
-                            degree in mathematical modeling in Benin, where I developed a solid foundation in applied mathematics, programming, and
-                            computational thinking. This led me to receive the prestigious Google DeepMind Scholarship to pursue a master’s degree in
-                            AI for Science at AIMS, where I gained advanced expertise in Machine Learning, Deep Learning, and AI, with applications
-                            across scientific disciplines.
-                        </p>
-                        <p>
-                            I am currently pursuing a research master's degree at SACEMA (South African Centre for Epidemiological Modelling and
-                            Analysis), where my work focuses on polio immunity estimation and outbreak risk assessment across Africa. This project
-                            aims to develop robust and user-friendly tools—including an R package for data analysts and a Shiny application for
-                            frontline health workers—to estimate population immunity levels. These tools are designed to flexibly accommodate data
-                            from countries with varying vaccination schedules, making them adaptable to a wide range of epidemiological contexts. In
-                            addition to supporting surveillance efforts, my work contributes to better preparedness for potential (re)emergence of
-                            poliovirus on the continent.
-                        </p>
-                        <p>
-                            My long-term vision is to continue building ethical, context-sensitive AI solutions that empower vulnerable communities,
-                            drive better policy, and create sustainable impact both locally and globally.
-                        </p>
-                    </section>
+          <section class="about-text text-justify">
+            <p>
+              Hello! My name is Olivier, and I am a mathematical modeling engineer and a master's graduate in the AI for Science program at the
+              African Institute for Mathematical Sciences (AIMS) in South Africa. Growing up in a family with limited financial means and in a village
+              where agriculture is the main activity, I witnessed firsthand the challenges associated with healthcare access, agricultural resilience,
+              and educational equity. Seasonal floods in my village regularly disrupt daily life and reduce farmland availability, underscoring the
+              urgent need for climate solutions. Moreover, the education system in isolated areas like mine often suffers from deep inequalities.
+              These lived experiences have fueled my passion for developing impactful, data-driven solutions.
+            </p>
+            <p>
+              To address these issues, I have focused my academic and professional journey on leveraging Artificial Intelligence and mathematical
+              modeling to tackle challenges in healthcare, climate, and education. My journey began with an Engineering degree in mathematical
+              modeling in Benin, where I developed a solid foundation in applied mathematics, programming, and computational thinking. This led me to
+              receive the prestigious Google DeepMind Scholarship to pursue a master’s degree in AI for Science at AIMS, where I gained advanced
+              expertise in Machine Learning, Deep Learning, and AI, with applications across scientific disciplines.
+            </p>
+            <p>
+              I am currently pursuing a research master's degree at SACEMA (South African Centre for Epidemiological Modelling and Analysis), where my
+              work focuses on polio immunity estimation and outbreak risk assessment across Africa. This project aims to develop robust and
+              user-friendly tools—including an R package for data analysts and a Shiny application for frontline health workers—to estimate population
+              immunity levels. These tools are designed to flexibly accommodate data from countries with varying vaccination schedules, making them
+              adaptable to a wide range of epidemiological contexts. In addition to supporting surveillance efforts, my work contributes to better
+              preparedness for potential (re)emergence of poliovirus on the continent.
+            </p>
+            <p>
+              My long-term vision is to continue building ethical, context-sensitive AI solutions that empower vulnerable communities, drive better
+              policy, and create sustainable impact both locally and globally.
+            </p>
+          </section>
 
-                    <!--
+          <!--
           - service
           -->
 
-                    <section class="service">
-                        <h3 class="h3 service-title">Interests</h3>
+          <section class="service">
+            <h3 class="h3 service-title">Interests</h3>
 
-                        <ul class="service-list"></ul>
-                    </section>
-                </article>
+            <ul class="service-list"></ul>
+          </section>
+        </article>
 
-                <!--
+        <!--
         - #RESUME
         -->
 
-                <article class="resume" data-page="resume">
-                    <header>
-                        <h2 class="h2 article-title">Resume</h2>
-                    </header>
+        <article class="resume" data-page="resume">
+          <header>
+            <h2 class="h2 article-title">Resume</h2>
+          </header>
 
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="school-outline"></ion-icon>
-                            </div>
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="school-outline"></ion-icon>
+              </div>
 
-                            <h3 class="h3">Education</h3>
-                        </div>
+              <h3 class="h3">Education</h3>
+            </div>
 
-                        <ol class="timeline-list education"></ol>
-                    </section>
+            <ol class="timeline-list education"></ol>
+          </section>
 
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="trophy-outline"></ion-icon>
-                            </div>
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="trophy-outline"></ion-icon>
+              </div>
 
-                            <h3 class="h3">Awards & Scholarships</h3>
-                        </div>
+              <h3 class="h3">Awards & Scholarships</h3>
+            </div>
 
-                        <ol class="timeline-list awards"></ol>
-                    </section>
+            <ol class="timeline-list awards"></ol>
+          </section>
 
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="barbell-outline"></ion-icon>
-                            </div>
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="barbell-outline"></ion-icon>
+              </div>
 
-                            <h3 class="h3">Experience</h3>
-                        </div>
+              <h3 class="h3">Experience</h3>
+            </div>
 
-                        <ol class="timeline-list experience"></ol>
-                    </section>
+            <ol class="timeline-list experience"></ol>
+          </section>
 
-                    <section class="skill">
-                        <h3 class="h3 skills-title">Skills</h3>
+          <section class="skill">
+            <h3 class="h3 skills-title">Skills</h3>
 
-                        <ul class="skills-list content-card" data-skills="python,r,c/c++/cuda,jax,pytorch,keras,sklearn,git,gcp"></ul>
-                    </section>
-                </article>
+            <ul class="skills-list content-card" data-skills="python,r,c/c++/cuda,jax,pytorch,keras,sklearn,git,gcp"></ul>
+          </section>
+        </article>
 
-                <!--
+        <!--
         - #PORTFOLIO
         -->
 
-                <article class="portfolio" data-page="projects">
-                    <header>
-                        <h2 class="h2 article-title">Projects</h2>
-                    </header>
+        <article class="portfolio" data-page="projects">
+          <header>
+            <h2 class="h2 article-title">Projects</h2>
+          </header>
 
-                    <section class="projects">
-                        <ul class="filter-list">
-                            <li class="filter-item">
-                                <button class="active" data-filter-btn>All</button>
-                            </li>
+          <section class="projects">
+            <ul class="filter-list">
+              <li class="filter-item">
+                <button class="active" data-filter-btn>All</button>
+              </li>
 
-                            <!-- <li class="filter-item">
+              <!-- <li class="filter-item">
                 <button data-filter-btn>Healthcare</button>
               </li>
 
@@ -236,23 +233,23 @@
               <li class="filter-item">
                 <button data-filter-btn>Others</button>
               </li> -->
-                        </ul>
+            </ul>
 
-                        <div class="filter-select-box">
-                            <button class="filter-select" data-select>
-                                <div class="select-value" data-selecct-value>Select category</div>
+            <div class="filter-select-box">
+              <button class="filter-select" data-select>
+                <div class="select-value" data-selecct-value>Select category</div>
 
-                                <div class="select-icon">
-                                    <ion-icon name="chevron-down"></ion-icon>
-                                </div>
-                            </button>
+                <div class="select-icon">
+                  <ion-icon name="chevron-down"></ion-icon>
+                </div>
+              </button>
 
-                            <ul class="select-list">
-                                <li class="select-item">
-                                    <button data-select-item>All</button>
-                                </li>
+              <ul class="select-list">
+                <li class="select-item">
+                  <button data-select-item>All</button>
+                </li>
 
-                                <!-- <li class="select-item">
+                <!-- <li class="select-item">
                   <button data-select-item>Healthcare</button>
                 </li>
 
@@ -271,52 +268,52 @@
                 <li class="select-item">
                   <button data-filter-btn>Others</button>
                 </li> -->
-                            </ul>
-                        </div>
+              </ul>
+            </div>
 
-                        <ul class="project-list"></ul>
-                    </section>
-                </article>
+            <ul class="project-list"></ul>
+          </section>
+        </article>
 
-                <!--
+        <!--
         - #PUBLICATIONS
         -->
 
-                <article class="paper" data-page="publications">
-                    <header>
-                        <h2 class="h2 article-title">Publications</h2>
-                    </header>
+        <article class="paper" data-page="publications">
+          <header>
+            <h2 class="h2 article-title">Publications</h2>
+          </header>
 
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="newspaper-outline"></ion-icon>
-                            </div>
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="newspaper-outline"></ion-icon>
+              </div>
 
-                            <h3 class="h3">Publications</h3>
-                        </div>
+              <h3 class="h3">Publications</h3>
+            </div>
 
-                        <ol class="timeline-list publications"></ol>
-                    </section>
+            <ol class="timeline-list publications"></ol>
+          </section>
 
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box">
-                                <ion-icon name="megaphone-outline"></ion-icon>
-                            </div>
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="megaphone-outline"></ion-icon>
+              </div>
 
-                            <h3 class="h3">Conferences</h3>
-                        </div>
+              <h3 class="h3">Conferences</h3>
+            </div>
 
-                        <ol class="timeline-list conferences"></ol>
-                    </section>
-                </article>
+            <ol class="timeline-list conferences"></ol>
+          </section>
+        </article>
 
-                <!--
+        <!--
         - #CONTACT
         -->
 
-                <!-- <article class="contact" data-page="contact">
+        <!-- <article class="contact" data-page="contact">
           <header>
             <h2 class="h2 article-title">Contact</h2>
           </header>
@@ -351,20 +348,20 @@
             </form>
           </section>
         </article> -->
-            </div>
-        </main>
+      </div>
+    </main>
 
-        <!--
+    <!--
     - custom js link
   -->
-        <script src="./assets/js/data.js"></script>
-        <script src="./assets/js/script.js"></script>
-        <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/main.js"></script>
 
-        <!--
+    <!--
     - ionicon link
   -->
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </body>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
 </html>

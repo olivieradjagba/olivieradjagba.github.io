@@ -162,10 +162,10 @@ document.addEventListener("DOMContentLoaded", function () {
       if (findSocial) {
         socialContent += `
           <li class="social-item">
-          <a href="${findSocial.url}" class="social-link">
-          <ion-icon name="${findSocial.icon}"></ion-icon>
-              </a>
-            </li>`;
+            <a href="${findSocial.url}" class="social-link" target="_blank" rel="noopener">
+              <ion-icon ${findSocial.icon ? "name=" + findSocial.icon : "src=" + findSocial.src}></ion-icon>
+            </a>
+          </li>`;
       }
     });
     innerHTML(socials, socialContent);
