@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * Easy selector helper function
    */
+  /**
+   * @param {string} el
+   * @param {boolean} all
+   * @returns {HTMLElement | HTMLElement[]}
+   */
   const select = (el, all = false) => {
     el = el.trim();
     if (all) {
@@ -74,6 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * Useful functions
    */
+  /**
+   * Set innerText
+   * @param {HTMLElement | HTMLElement[]} els
+   * @param {string} text
+   * @param {Array<{name: string, value: string}>} props
+   */
   const innerText = (els, text, props = null) => {
     if (isCollection(els)) {
       els.forEach((el) => {
@@ -92,6 +103,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  /**
+   * Set innerHTML
+   * @param {HTMLElement | HTMLElement[]}
+   * @param {string} html
+   */
   const innerHTML = (els, html) => {
     if (Array.isArray(els)) {
       els.forEach((el) => {
@@ -102,7 +118,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  /**
+   * Compare two strings in a case-insensitive manner.
+   * @param {string} str1
+   * @param {string} str2
+   * @returns {boolean}
+   */
   const strCompare = (str1, str2) => !str1.localeCompare(str2, "en", { sensitivity: "base" });
+
+  /**
+   * Get the right year range to display
+   * @param {number} from
+   * @param {number} to
+   * @param {boolean} ongoing
+   * @returns {number|string}
+   */
+  const durationTo = (from, to, ongoing) => {
+    if (from == to) to = (ongoing && " - present") || "";
+    else to = " - " + (to >= currentYear && ongoing !== false ? "present" : to);
+    return from + to;
+  };
 
   /**
    * Title
@@ -247,9 +282,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <li class="timeline-item">
           <h4 class="h4 timeline-item-title">${item.degree}</h4>
           <h5 class="h4 univ-comp">${item.university.name} (${item.university.shortname}), ${item.university.city}, ${item.university.country}</h5>
-          <span>${item.duration.from} - ${((item.duration.to < currentYear || !item.ongoing) && item.duration.to) || "present"}</span>
+          <span>${durationTo(item.duration.from, item.duration.to, item.ongoing)}</span>
           <div class="timeline-text text-justify">${item.description}</div>
-        </li>`;
+          </li>`;
+      // <span>${item.duration.from} - ${(item.duration.to >= currentYear && item.ongoing !== false && "present") || item.duration.to}</span>
     });
 
     // Awards
@@ -259,14 +295,15 @@ document.addEventListener("DOMContentLoaded", function () {
     awards.forEach((item) => {
       awardsEl.innerHTML += `
         <li class="timeline-item">
-          <h4 class="h4 timeline-item-title">${item.title} ${
+          <h4 class="h4 timeline-item-title">
+          ${item.title} ${
         item.letter
           ? '<span><a href="' +
             item.letter +
             '" target="_blank" title="Offer letter"><ion-icon name="link-outline" class="h4 link"></ion-icon></a></span>'
           : ""
       }</h4>
-          <span>${item.duration.from} - ${((item.duration.to < currentYear || !item.ongoing) && item.duration.to) || "present"}</span>
+          <span>${durationTo(item.duration.from, item.duration.to, item.ongoing)}</span>
           <div class="timeline-text text-justify">${item.description}</div>
         </li>`;
     });
@@ -280,11 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <li class="timeline-item">
           <h4 class="h4 timeline-item-title">${item.position}</h4>
           <h5 class="h4 univ-comp">${item.company}</h5>
-          <span>${item.duration.from} ${
-        !item.ongoing && item.duration.from == item.duration.to
-          ? ""
-          : "- " + (((item.duration.to < currentYear || !item.ongoing) && item.duration.to) || "present")
-      }</span>
+          <span>${durationTo(item.duration.from, item.duration.to, item.ongoing)}</span>
           <p class="timeline-text text-justify">${item.description}</p>
         </li>`;
     });

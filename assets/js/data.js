@@ -156,7 +156,6 @@ const resumeInfo = {
       // grade: "Distinction",
       // duration: { from: { month: 9, year: 2024 }, to: { month: 8, year: 2026 } },
       duration: { from: 2024, to: 2026 },
-      ongoing: true,
       description:
         "<p>Hosted at the South African Centre for Epidemiological Modelling and Analysis (SACEMA), this research master's program focuses on developing advanced tools and methodologies to estimate population immunity against poliovirus and assess outbreak risks across Africa. The work is rooted in real-world public health challenges, aiming to support global eradication efforts through data-driven insights and tools.</p>" +
         "<p>My current project is centered around <em class='topic'>Polio immunity estimation and outbreak risk analysis across Africa</em>. I am building a set of user-friendly, flexible tools—including an <strong>R package</strong> tailored for data analysts and a <strong>Shiny application</strong> designed for health workers—to estimate immunity levels even in the presence of complex and diverse vaccination schedules. These tools are meant to be adaptable across countries, regardless of their specific immunization programs. The ultimate goal is to enable timely and accurate decision-making for disease prevention and control.</p>",
@@ -196,6 +195,14 @@ const resumeInfo = {
     },
   ],
   awards: [
+    {
+      id: "sun",
+      title: "SACEMA–Stellenbosch University Master's Scholarship",
+      //   letter: "https://drive.google.com/file/d/1dlp-urhy6EZFQaf8on_CQWHe0fIrTcya/view?usp=sharing",
+      description:
+        "Awarded to support my research master’s program in Applied Mathematics at Stellenbosch University through SACEMA, this scholarship recognizes academic excellence and enables my research in disease modeling and machine learning, with a focus on polio immunity and outbreak risk in Africa.",
+      duration: { from: 2024, to: 2026 },
+    },
     {
       id: "aims",
       title: "Google DeepMind Scholarship",
@@ -266,7 +273,7 @@ const resumeInfo = {
     { id: "matlab", name: "MATLAB", level: 75 },
     { id: "c/c++/cuda", name: "C/C++/CUDA", level: 60 },
     { id: "keras", name: "Keras", level: 80 },
-    { id: "pytorch", name: "Pytorch", level: 70 },
+    { id: "pytorch", name: "Pytorch", level: 75 },
     { id: "jax", name: "JAX", level: 60 },
     { id: "sklearn", name: "Scikit-Learn", level: 75 },
     { id: "gcp", name: "Google Cloud Computing", level: 50 },
